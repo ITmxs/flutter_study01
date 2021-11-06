@@ -2,8 +2,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'jg_flutter_page.dart';
-import 'strings.dart' as strings;
 
 void main() => runApp(new MyApp());
 
@@ -11,9 +9,46 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: strings.appTitle,
       theme: ThemeData(primaryColor: Colors.green.shade800),
-      home: JGFlutter(),
+      home: MyHomePage(
+        title: "坚果",
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({required this.title});
+  // This widget is the home page of your application.
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text('Hello World'), //TextButton Example
+            new TextButton(
+              child: Text("Click here"),
+              onPressed: () {
+                // Do something here
+              },
+            ),
+
+//OutlinedButton Example
+            new OutlinedButton(
+              child: Text("Click here"),
+              onPressed: () {
+                // Do something here
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
